@@ -295,6 +295,3 @@ end
 
 -- Initialize Corona Ads
 coronaAds.init( apiKey, adListener )
-
--- Signal Corona Ads that the app is running in full screen mode (hidden status bar)
-coronaAds.setFullscreen( true )
