@@ -98,14 +98,7 @@ end
 -- Button/switch handler function
 local function onButtonPress( event )
 
-	if ( event.target.id == "testMode" ) then
-		if ( event.target.isOn == true ) then
-			coronaAds.setTestMode( true )
-		else
-			coronaAds.setTestMode( false )
-		end
-
-	elseif ( event.target.id == "showBannerTop" ) then
+	if ( event.target.id == "showBannerTop" ) then
 		coronaAds.show( adPlacements["bannerTop"], false )
 		manageSpinner( "show" )
 		showBannerTopButton:setEnabled( false )
@@ -130,42 +123,22 @@ local function onButtonPress( event )
 	end
 end
 
--- Create test mode switch/label
-local testModeLabel = display.newText( mainGroup, "enable test mode", 112, 140, appFont, 16 )
-testModeLabel.anchorX = 0
-
-local testModeSwitch = widget.newSwitch(
-	{
-		sheet = assets,
-		width = 35,
-		height = 35,
-		frameOn = 3,
-		frameOff = 4,
-		x = testModeLabel.contentBounds.xMin-22,
-		y = testModeLabel.y,
-		style = "checkbox",
-		id = "testMode",
-		initialSwitchState = true,
-		onPress = onButtonPress
-	})
-mainGroup:insert( testModeSwitch )
-
 -- Text label for banner buttons
-local showText = display.newText( mainGroup, "show/hide banner ad", display.contentCenterX, 210, appFont, 16 )
+local showText = display.newText( mainGroup, "Show/Hide Banner Ad", display.contentCenterX, 180, appFont, 16 )
 
 -- Create button containers
 local containerTop = display.newContainer( mainGroup, 90, 32 )
 containerTop.x = 108
-containerTop.y = 246
+containerTop.y = 216
 local containerBottom = display.newContainer( mainGroup, 90, 32 )
 containerBottom.x = 212
-containerBottom.y = 246
+containerBottom.y = 216
 
 -- Create button to hide banner ad (top)
 hideBannerTopButton = widget.newButton(
 	{
-		label = "hide",
 		id = "hideBannerTop",
+		label = "Hide",
 		shape = "rectangle",
 		x = 0,
 		y = 0,
@@ -184,8 +157,8 @@ hideBannerTopButton.alpha = 0
 -- Create button to show banner ad (top)
 showBannerTopButton = widget.newButton(
 	{
-		label = "",
 		id = "showBannerTop",
+		label = "",
 		sheet = assets,
 		x = 0,
 		y = 0,
@@ -202,8 +175,8 @@ showBannerTopButton.alpha = 0.3
 -- Create button to hide banner ad (bottom)
 hideBannerBottomButton = widget.newButton(
 	{
-		label = "hide",
 		id = "hideBannerBottom",
+		label = "Hide",
 		shape = "rectangle",
 		x = 0,
 		y = 0,
@@ -222,8 +195,8 @@ hideBannerBottomButton.alpha = 0
 -- Create button to show banner ad (bottom)
 showBannerBottomButton = widget.newButton(
 	{
-		label = "",
 		id = "showBannerBottom",
+		label = "",
 		sheet = assets,
 		x = 0,
 		y = 0,
@@ -241,11 +214,11 @@ showBannerBottomButton.alpha = 0.3
 -- Create button to show interstitial ad
 showInterstitialButton = widget.newButton(
 	{
-		label = "show interstitial ad",
 		id = "showInterstitial",
+		label = "Show Interstitial Ad",
 		shape = "rectangle",
 		x = display.contentCenterX,
-		y = 335,
+		y = 300,
 		width = 194,
 		height = 32,
 		font = appFont,
@@ -323,13 +296,5 @@ end
 -- Initialize Corona Ads
 coronaAds.init( apiKey, adListener )
 
--- Enable test mode
-coronaAds.setTestMode( true )
-
 -- Signal Corona Ads that the app is running in full screen mode (hidden status bar)
 coronaAds.setFullscreen( true )
-
--- Prepare ad placements
-coronaAds.prepare( { adType="BANNER_AD", placementId=adPlacements["bannerTop"], adPosition="top" } )
-coronaAds.prepare( { adType="BANNER_AD", placementId=adPlacements["bannerBottom"], adPosition="bottom" } )
-coronaAds.prepare( { adType="INTERSTITIAL_AD", placementId=adPlacements["interstitial"] } )
