@@ -146,8 +146,8 @@ hideBannerTopButton = widget.newButton(
 		height = 32,
 		font = appFont,
 		fontSize = 16,
-		fillColor = { default={ 0.55,0.125,0.125,1 }, over={ 0.55,0.125,0.125,1 } },
-		labelColor = { default={ 1,1,1,1 }, over={ 1,1,1,0.8 } },
+		fillColor = { default={ 0.55,0.125,0.125,1 }, over={ 0.605,0.138,0.138,1 } },
+		labelColor = { default={ 1,1,1,1 }, over={ 1,1,1,1 } },
 		onRelease = onButtonPress
 	})
 containerTop:insert( hideBannerTopButton )
@@ -184,8 +184,8 @@ hideBannerBottomButton = widget.newButton(
 		height = 32,
 		font = appFont,
 		fontSize = 16,
-		fillColor = { default={ 0.55,0.125,0.125,1 }, over={ 0.55,0.125,0.125,1 } },
-		labelColor = { default={ 1,1,1,1 }, over={ 1,1,1,0.8 } },
+		fillColor = { default={ 0.55,0.125,0.125,1 }, over={ 0.605,0.138,0.138,1 } },
+		labelColor = { default={ 1,1,1,1 }, over={ 1,1,1,1 } },
 		onRelease = onButtonPress
 	})
 containerBottom:insert( hideBannerBottomButton )
@@ -223,8 +223,8 @@ showInterstitialButton = widget.newButton(
 		height = 32,
 		font = appFont,
 		fontSize = 16,
-		fillColor = { default={ 0.12,0.32,0.52,1 }, over={ 0.12,0.32,0.52,1 } },
-		labelColor = { default={ 1,1,1,1 }, over={ 1,1,1,0.8 } },
+		fillColor = { default={ 0.12,0.32,0.52,1 }, over={ 0.132,0.352,0.572,1 } },
+		labelColor = { default={ 1,1,1,1 }, over={ 1,1,1,1 } },
 		onRelease = onButtonPress
 	})
 showInterstitialButton:setEnabled( false )
