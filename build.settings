@@ -38,6 +38,8 @@ settings =
 			{
 				NSAllowsArbitraryLoads = true
 			},
+			NSLocationAlwaysUsageDescription = { "" },
+            NSLocationWhenInUseUsageDescription = { "" },
 		},
 	},
 
