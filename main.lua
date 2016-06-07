@@ -258,11 +258,6 @@ local function adListener( event )
 	elseif ( event.phase == "found" ) then
 		print( 'Corona Ads event: ad for "' .. tostring(event.placementId) .. '" placement found' )
 
-	-- An ad could not be found
-	elseif ( event.phase == "failed" ) then
-		print( 'Corona Ads event: ad for "' .. tostring(event.placementId) .. '" placement not found' )
-		manageSpinner( "hide" )
-
 	-- The ad has shown
 	elseif ( event.phase == "shown" ) then
 		print( 'Corona Ads event: ad for "' .. tostring(event.placementId) .. '" placement has shown' )
@@ -275,9 +270,14 @@ local function adListener( event )
 				onComplete=function() hideBannerBottomButton:setEnabled( true ); end } )
 		end
 
-	-- An interstitial ad was closed/hidden
-	elseif ( event.phase == "closed" ) then
-		print( 'Corona Ads event: ad for "' .. tostring(event.placementId) .. '" placement closed/hidden' )
+	-- An ad was closed/hidden, or an ad could not be found
+	elseif ( event.phase == "closed" or event.phase == "failed" ) then
+		if ( event.phase == "closed" ) then
+			print( 'Corona Ads event: ad for "' .. tostring(event.placementId) .. '" placement closed/hidden' )
+		elseif ( event.phase == "failed" ) then
+			print( 'Corona Ads event: ad for "' .. tostring(event.placementId) .. '" placement not found' )
+			manageSpinner( "hide" )
+		end
 		if ( event.placementId == adPlacements["bannerTop"] ) then
 			hideBannerTopButton:setEnabled( false )
 			transition.to( showBannerTopButton, { y=0, time=320, transition=easing.outQuad,
