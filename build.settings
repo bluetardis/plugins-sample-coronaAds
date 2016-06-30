@@ -63,5 +63,10 @@ settings =
             publisherId = "com.coronalabs",
             supportedPlatforms = { android=true }
         },
+		["plugin.android.support.v4"] =
+		{
+			publisherId = "com.coronalabs",
+			supportedPlatforms = { android=true }
+		},
 	},
 }
