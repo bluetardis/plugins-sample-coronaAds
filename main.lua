@@ -3,6 +3,7 @@
 -- Version: 1.0
 -- Sample code is MIT licensed; see https://www.coronalabs.com/links/code/license
 ---------------------------------------------------------------------------------------
+--Using the BlueTardis MayDay Key
 
 display.setStatusBar( display.HiddenStatusBar )
 
@@ -32,7 +33,8 @@ local appFont = sampleUI.appFont
 
 -- Preset the Corona Ads API key (replace this with your own for testing/release)
 -- This key must be generated within the Corona Ads dashboard: http://monetize.coronalabs.com/
-local apiKey = "5223c2c3-cf81-4c43-ae41-2d4ed16552bc"
+local apiKey = "5fbf7570-75be-4150-a318-3edd08b13af6" --using the MayDay Key
+
 
 -- Set local variables
 local hideBannerTopButton
